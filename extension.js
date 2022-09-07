@@ -22,12 +22,18 @@ chrome.webNavigation.onCommitted.addListener(function (tab) {
                 .slice(0, parsedUrl.indexOf('?') == -1 ? parsedUrl.length : parsedUrl.indexOf('?'));
 
             try {
+                console.log(domain);
                 if (domain.length < 1 || domain === null || domain === undefined) {
                     return;
-                } else if (domain == "linkedin.com") {
+                } else if (domain === "www.linkedin.com") {
                     runLinkedinScript();
                     return;
-                }
+                } else if (domain === "twitter.com") {
+                    runTwitterScript();
+                    return;
+                } 
+
+                
             } catch (err) {
                 throw err;
             }
@@ -45,4 +51,10 @@ function runLinkedinScript() {
     return true;
 }
 
-
+function runTwitterScript() {
+    // Inject script from file into the webpage
+    chrome.tabs.executeScript({
+        file: 'twitter.js'
+    });
+    return true;
+}
