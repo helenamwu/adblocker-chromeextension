@@ -31,6 +31,9 @@ chrome.webNavigation.onCommitted.addListener(function (tab) {
                 } else if (domain === "twitter.com") {
                     runTwitterScript();
                     return;
+                } else if (domain === "reddit.com") {
+                    runRedditScript();
+                    return;
                 } 
 
                 
@@ -58,3 +61,12 @@ function runTwitterScript() {
     });
     return true;
 }
+
+function runRedditScript() {
+    // Inject script from file into the webpage
+    chrome.tabs.executeScript({
+        file: 'reddit.js'
+    });
+    return true;
+}
+
