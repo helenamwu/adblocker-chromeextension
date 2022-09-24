@@ -34,6 +34,9 @@ chrome.webNavigation.onCommitted.addListener(function (tab) {
                 } else if (domain === "reddit.com") {
                     runRedditScript();
                     return;
+                } else if (domain === "facebook.com") {
+                    runFacebookScript();
+                    return;
                 } 
 
                 
@@ -66,6 +69,14 @@ function runRedditScript() {
     // Inject script from file into the webpage
     chrome.tabs.executeScript({
         file: 'reddit.js'
+    });
+    return true;
+}
+
+function runFacebookScript() {
+    // Inject script from file into the webpage
+    chrome.tabs.executeScript({
+        file: 'facebook.js'
     });
     return true;
 }
