@@ -12,7 +12,8 @@
         "webNavigation",
         "https://www.linkedin.com/",
         "https://twitter.com/",
-        "https://www.reddit.com/"
+        "https://www.reddit.com/",
+        "https://www.facebook.com/"
     ],
     "background": {
         "scripts": [
